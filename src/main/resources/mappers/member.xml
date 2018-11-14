@@ -15,10 +15,11 @@
         <result column="create_dt" property="createDt" javaType="java.time.LocalDateTime"/>
     </resultMap>
 
-    <select id="selectMember" parameterType="long" resultMap="member">
+    <select id="selectMember" parameterType="com.post.member.model.Member" resultMap="member">
         SELECT *
         FROM member
-        WHERE member_no = #{memberNo}
+        WHERE 1=1
+        <if test="memberNo != null"> AND member_no = #{memberNo} </if>
+        <if test="id != null"> AND id = #{id} </if>
     </select>
-
 </mapper>

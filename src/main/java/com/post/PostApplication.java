@@ -29,4 +29,5 @@ public class PostApplication {
 
         return sessionFactory.getObject();
     }
+
 }

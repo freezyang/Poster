@@ -17,6 +17,17 @@ public class Member {
     private String creator;
     private LocalDateTime createDt;
 
+    public Member() {
+    }
+
+    public Member(Long memberNo) {
+        this.memberNo = memberNo;
+    }
+
+    public Member(String id) {
+        this.id = id;
+    }
+
     public Long getMemberNo() {
         return memberNo;
     }

@@ -11,7 +11,8 @@ public class MemberRepository {
     @Autowired
     private MemberMapper memberMapper;
 
-    public Member selectMember(Long memberNo) {
-        return memberMapper.selectMember(memberNo);
+    public Member selectMember(Member member) {
+        return memberMapper.selectMember(member);
     }
+
 }
