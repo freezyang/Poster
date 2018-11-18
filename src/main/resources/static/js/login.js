@@ -18,7 +18,6 @@ function checkLoginInfo() {
         } else {
             alert(data['msg']);
         }
-        console.log(data);
     }, 'JSON');
 }
 

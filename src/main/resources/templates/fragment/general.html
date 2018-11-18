@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="header">
+        <div class="top_right">
+            <a href="/member/logout">로그아웃</a>
+        </div>
+    </div>
+
+    <div th:fragment="sidenav">
+        <div class="sidenav">
+            <a href="#setting">설정</a>
+            <button class="dropdown-btn">상품관리
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">상품 조회/수정</a>
+                <a href="#">상품 등록</a>
+            </div>
+            <button class="dropdown-btn">사이트관리
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">네이버 블로그</a>
+                <a href="#">골마켓 까페</a>
+                <a href="#">중고나라 까페</a>
+                <a href="#">번개장터</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
