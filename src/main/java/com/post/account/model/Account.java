@@ -1,18 +1,25 @@
-package com.post.member.model;
-
-import com.post.member.type.ROLE;
-import lombok.*;
-import org.apache.commons.lang3.builder.ToStringBuilder;
+package com.post.account.model;
 
 import java.time.LocalDateTime;
 
+
+import com.post.account.type.Role;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @ToString
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Member {
-    private Long memberNo;
-    private ROLE role;
+public class Account {
+    private Long accountNo;
+    private Role role;
     @NonNull
     private String id;
     private String password;
@@ -23,7 +30,4 @@ public class Member {
     private String creator;
     private LocalDateTime createDt;
 
-    public Member(Long memberNo) {
-        this.memberNo = memberNo;
-    }
 }

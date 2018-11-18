@@ -12,7 +12,6 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-@MapperScan(value = {"com.post.member.mapper"})
 public class PostApplication {
 
     public static void main(String[] args) {

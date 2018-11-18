@@ -1,12 +1,12 @@
-package com.post.member.type;
+package com.post.account.type;
 
-public enum ROLE {
-    ADMIN("관리자"),
-    USER("사용자");
+public enum Role {
+    ROLE_ADMIN("관리자"),
+    ROLE_USER("사용자");
 
     private String description;
 
-    ROLE(String description) {
+    Role(String description) {
         this.description = description;
     }
 
