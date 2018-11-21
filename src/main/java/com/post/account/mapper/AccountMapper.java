@@ -6,5 +6,5 @@ import com.post.account.model.Account;
 
 @Mapper
 public interface AccountMapper {
-   public Account findById(String id);
+   public Account findById(Account account);
 }

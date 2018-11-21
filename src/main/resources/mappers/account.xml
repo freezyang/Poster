@@ -3,14 +3,13 @@
 <mapper namespace="com.post.account.mapper.AccountMapper">
 
     <resultMap id="account" type="com.post.account.model.Account">
-        <result column="account_no" property="memberNo"/>
-        <result column="role" property="role"/>
-        <result column="id" property="id"/>
+        <result column="account_no" property="accountNo"/>
+        <result column="role" property="role" javaType="com.post.account.type.Role"/>
+        <result column="email" property="email"/>
         <result column="password" property="password"/>
         <result column="name" property="name"/>
         <result column="cell_phone" property="cellPhone"/>
         <result column="phone" property="phone"/>
-        <result column="email" property="email"/>
         <result column="creator" property="creator"/>
         <result column="create_dt" property="createDt" javaType="java.time.LocalDateTime"/>
     </resultMap>
@@ -19,6 +18,6 @@
         SELECT *
         FROM account
         WHERE 1=1
-        <if test="id != null"> AND id = #{id} </if>
+        <if test="email != null"> AND email = #{email} </if>
     </select>
 </mapper>

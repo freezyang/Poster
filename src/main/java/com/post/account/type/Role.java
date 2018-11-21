@@ -1,8 +1,8 @@
 package com.post.account.type;
 
 public enum Role {
-    ROLE_ADMIN("관리자"),
-    ROLE_USER("사용자");
+    ADMIN("관리자"),
+    USER("사용자");
 
     private String description;
 

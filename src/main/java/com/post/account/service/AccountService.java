@@ -25,12 +25,16 @@ public class AccountService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    public Account findById(String email) {
+        return accountRepository.findById(email);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Account account = accountRepository.findById(email);
 
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        authorities.add(new SimpleGrantedAuthority("USER"));
 
         return new User(account.getEmail(), account.getPassword(), authorities);
     }

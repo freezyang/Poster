@@ -12,7 +12,7 @@ public class AccountRepository {
     @Autowired
     private AccountMapper accountMapper;
 
-    public Account findById(String id) {
-        return accountMapper.findById(id);
+    public Account findById(String email) {
+        return accountMapper.findById(new Account(email));
     }
 }

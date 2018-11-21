@@ -21,12 +21,11 @@ public class Account {
     private Long accountNo;
     private Role role;
     @NonNull
-    private String id;
+    private String email;
     private String password;
     private String name;
     private String cellPhone;
     private String phone;
-    private String email;
     private String creator;
     private LocalDateTime createDt;
 

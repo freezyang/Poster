@@ -4,20 +4,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>로그인</title>
-    <link rel="stylesheet" href="../static/css/login.css">
-    <script type="text/javascript" src="../static/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="../static/js/login.js"></script>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/login.js"></script>
 </head>
 <body>
     <div class="login_box">
-        <form method="post" onsubmit="checkLoginInfo(); return false;" action="/home/index" style="border:1px solid #ccc">
+        <form method="post"  th:action="@{/login}" style="border:1px solid #ccc">
             <div class="container">
                 <h1>Login</h1>
 
-                <label for="email"><b>ID</b></label>
-                <input type="text" placeholder="Enter Id" id="id" name="id" required>
+                <label for="username"><b>ID</b></label>
+                <input type="text" placeholder="Enter Id" id="username" name="username" required>
 
-                <label for="psw"><b>Password</b></label>
+                <label for="password"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" id="password" name="password" required>
 
                 <div class="clearfix">
