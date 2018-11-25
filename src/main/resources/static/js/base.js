@@ -7,4 +7,18 @@ $(document).ready(function() {
             $(this).next().toggle();
         });
     });
+
+    viewSideMenu();
 });
+
+function viewSideMenu() {
+    var pathname = window.location.pathname;
+
+    $('.sidenav a').each(function () {
+        if($(this).attr('href') == pathname) {
+            $(this).css('color', '#f1f1f1');
+            $(this).parent().show();
+            $(this).parent().prev().addClass('active');
+        }
+    });
+}

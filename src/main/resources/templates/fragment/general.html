@@ -1,31 +1,70 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-    <div th:fragment="header">
-        <div class="top_right">
-            <a href="/member/logout">로그아웃</a>
-        </div>
+
+    <div th:fragment="sidebar">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Bootstrap Sidebar</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <p>Dummy Heading</p>
+                <li>
+                    <a href="#">설정</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">상품관리</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li><a href="/goods/list">상품 조회/수정</a></li>
+                        <li><a href="/goods/register">상품등록</a></li>
+                        <li><a href="#">Home 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">사이트관리</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li><a href="#">네이버블로그</a></li>
+                        <li><a href="#">골마켓 까페</a></li>
+                        <li><a href="#">중고나라 까페</a></li>
+                        <li><a href="#">번개장터</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <div th:fragment="sidenav">
-        <div class="sidenav">
-            <a href="#setting">설정</a>
-            <button class="dropdown-btn">상품관리
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#">상품 조회/수정</a>
-                <a href="#">상품 등록</a>
+    <div th:fragment="topbar">
+        <!-- Top Navigator -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <button class="dropdown-btn">사이트관리
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#">네이버 블로그</a>
-                <a href="#">골마켓 까페</a>
-                <a href="#">중고나라 까페</a>
-                <a href="#">번개장터</a>
-            </div>
-        </div>
+        </nav>
     </div>
 </body>
 </html>

@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>홈</title>
-    <script type="text/javascript" src="../static/js/lib/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="../static/js/base.js"></script>
-    <link rel="stylesheet" href="../static/css/base.css">
+    <title>메인</title>
+    <th:block th:include="/fragment/header.html"></th:block>
+    <script type="text/javascript" src="../static/se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var oEditors = [];
+        $(document).ready(function() {
+            nhn.husky.EZCreator.createInIFrame({
+                oAppRef: oEditors,
+                elPlaceHolder: "ir1",
+                sSkinURI: "../static/se2/SmartEditor2Skin.html",
+                fCreator: "createSEditor2"
+            });
+        });
+    </script>
 </head>
 <body>
-<div class="container" style="width: 100%;">
-    <!-- 페이지 헤더 영역-->
-    <div  class="top" th:include="/fragment/general.html::header"></div>
-    <!-- 사이드 네비 영역-->
-    <div  class="left" th:include="/fragment/general.html::sidenav"></div>
-    <!-- 컨텐츠 영역-->
-    <div class="body">
 
+<div class="wrapper">
+    <div  class="top" th:include="/fragment/general.html::sidebar"></div>
+    <!-- Page Content  -->
+    <div id="content">
+        <div  class="top" th:include="/fragment/general.html::topbar"></div>
+        <div class="contentCollaps">
+            <div class="contentsBox">
+                <textarea name="ir1" id="ir1" rows="10" cols="100">에디터에 기본으로 삽입할 글(수정 모드)이 없다면 이 value 값을 지정하지 않으시면 됩니다.</textarea>
+            </div>
+        </div>
     </div>
 </div>
 </body>
