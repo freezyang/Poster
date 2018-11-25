@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.post.goods.mapper.GoodsSiteMapper">
+
+    <insert id="insertGoodsSiteMapping" parameterType="map">
+        INSERT INTO goods_site_mapping (goods_site_no, site_code, goods_no, creator, create_dt)
+        VALUES (null, #{siteCode}, #{goodsNo}, #{creator}, NOW())
+    </insert>
+    
+</mapper>
