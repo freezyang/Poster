@@ -9,8 +9,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
@@ -21,6 +23,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AccountService accountService;
 
+    @Autowired
+    private UserDetailsService userDetailServiceImpl;
+
     @Override
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers("**/*.css", "**/*.js");
@@ -28,7 +33,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         http.csrf().disable();
 
         // 스마트 에디터를 사용하기위한 Cross-Origin frame 해결설정
@@ -55,20 +59,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessHandler(logoutSuccessHandler());
     }
 
-    @Override
+    /*@Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("ADMIN");
         auth.inMemoryAuthentication().withUser("member").password("{noop}member").roles("USER");
-    }
-
-    /*@Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(accountService).passwordEncoder(passwordEncoder());
     }*/
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailServiceImpl).passwordEncoder(passwordEncoder());
+    }
 
     @Bean
     public AuthenticationSuccessHandler loginSuccessHandler() {
         return new LoginSuccessHandler();
+    }
+
+    @Bean
+    public AuthenticationFailureHandler loginFailureHandler() {
+        return new LoginFailureHandler();
     }
 
     @Bean

@@ -20,4 +20,9 @@
         WHERE 1=1
         <if test="email != null"> AND email = #{email} </if>
     </select>
+
+    <insert id="insert" parameterType="com.post.model.Account">
+        INSERT INTO account(account_no, role, email, password, name, cell_phone, phone, creator, create_dt)
+        VALUES(null, #{role}, #{email}, #{password}, #{name}, #{cellPhone}, #{phone}, #{email}, NOW())
+    </insert>
 </mapper>

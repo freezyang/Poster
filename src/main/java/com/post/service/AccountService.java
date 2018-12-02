@@ -1,23 +1,13 @@
 package com.post.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.post.model.Account;
+import com.post.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.post.model.Account;
-import com.post.repository.AccountRepository;
-
 @Service
-public class AccountService implements UserDetailsService {
+public class AccountService {
 
     @Autowired
     private AccountRepository accountRepository;
@@ -29,13 +19,9 @@ public class AccountService implements UserDetailsService {
         return accountRepository.findById(email);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Account account = accountRepository.findById(email);
-
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("USER"));
-
-        return new User(account.getEmail(), account.getPassword(), authorities);
+    public int signup(Account account) {
+        String encPassword = passwordEncoder.encode(account.getPassword());
+        account.setPassword(encPassword);
+        return accountRepository.insert(account);
     }
 }

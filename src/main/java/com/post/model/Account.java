@@ -28,5 +28,4 @@ public class Account {
     private String phone;
     private String creator;
     private LocalDateTime createDt;
-
 }

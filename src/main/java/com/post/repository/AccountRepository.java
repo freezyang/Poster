@@ -15,4 +15,8 @@ public class AccountRepository {
     public Account findById(String email) {
         return accountMapper.findById(new Account(email));
     }
+
+    public int insert(Account account) {
+        return accountMapper.insert(account);
+    }
 }
